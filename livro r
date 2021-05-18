@@ -44,6 +44,17 @@ O R considera letras minúsculas e maiúsculas como objetos diferentes, nele pod
 
 Sempre que pressionarmos a tecla “enter” o comando que está digitado é executado e se não houver comando nada será processado apenas mudamos de linha. 
 
+“>“ este símbolo (prompt do R) significa que o programa está pronto para receber os comandos. 
+
+Sempre que forem inseridos comentários devemos iniciar a frase com o símbolo #, pois essas linhas serão ignoradas pelo R;
+
+Quando se trabalha com conjuntos de dados vindos de outros programas, por exemplo, do Excel, necessita-se utilizar uma função de “read_excel, porém é mais comumente utilizado a extensão “.csv” 
+
+O R necessita da especificação de um diretório, ou seja, uma pasta criada no “C” do computador;
+
+No programa R basta ir em Arquivo/Mudar dir... e definir o diretório em que será salvo o  arquivo, ou simplesmente digitando o caminho no script. 
+
+Quando abrir a página “alteração do diretório”, escolha o diretório (pasta) em que está salvo o arquivo.
 
 
  
