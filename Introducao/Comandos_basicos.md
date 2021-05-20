@@ -49,36 +49,36 @@ O R possibilita seu uso como calculadora, podendo operar facilmente cálculos e 
 
 ### Exemplos
 
-a) 5 + 3*10  
+*a) 5 + 3*10*  
 
- [1] 35                              
+ *[1] 35*                              
  
- b) 20 / 5 ^ 3
+ *b) 20 / 5 ^ 3*
  
- [1] 0.16                                  
+ *[1] 0.16*                                  
  
- c) log(5)
+ *c) log(5)*
  
- [1] 1.609438 
+ *[1] 1.609438* 
   
- d) log10(100)
+ *d) log10(100)*
+ 
+ *[1] 2*
+  
+ *e) sqrt(4)*
  
  [1] 2
   
- e) sqrt(4)
+ *f) sin (90)*
  
- [1] 2
-  
- f) sin (90)
- 
- [1] 1
+ *[1] 1*
 
 ## Comandos Incompletos
 
 Sempre que aparecer um sinal de “+” indica ao usuário que falta o restante do código e que o R está esperando para poder interpretar e executar.
 
-10 *
-+
+*10 *
++*
 
 E ai você pode digitar o número que faltou e apertar “enter” que o R irá entender que é uma continuação da linha de código.
 
@@ -110,7 +110,7 @@ Para instalar o pacote por meio de código, você pode utilizar a função “in
 
 Ex: Para instalar um pacote que utiliza a função de criação de gráficos
 
-Install.packages(“ggplot2”)
+*Install.packages(“ggplot2”)*
 
 Lembrando que, todo nome do pacote deve estar entre aspas.
 
@@ -125,8 +125,8 @@ Só que diferentemente do uso do código aparecerá uma janela com vários pacot
 
 Porém, apesar dos pacotes instalados, ele ainda não está disponível para uso, existem duas maneiras de habilitá-los, utilizando a função “require” ou “library”:
 
-Require(ggplot2)
-Library(“ggplot2”)
+*Require(ggplot2)*
+*Library(“ggplot2”)*
 
 ![image](https://user-images.githubusercontent.com/67385452/119027771-1e940600-b97d-11eb-907a-07e4af77c6db.png)
 
