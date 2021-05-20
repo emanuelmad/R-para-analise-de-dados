@@ -126,6 +126,7 @@ Só que diferentemente do uso do código aparecerá uma janela com vários pacot
 Porém, apesar dos pacotes instalados, ele ainda não está disponível para uso, existem duas maneiras de habilitá-los, utilizando a função “require” ou “library”:
 
 *Require(ggplot2)*
+
 *Library(“ggplot2”)*
 
 ![image](https://user-images.githubusercontent.com/67385452/119027771-1e940600-b97d-11eb-907a-07e4af77c6db.png)
