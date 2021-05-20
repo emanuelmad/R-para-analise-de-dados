@@ -66,15 +66,16 @@ No R basta digitar o comando summary() e o nome do arquivo inserido entre parên
 
 ### Exemplo:
 
-summary(df)
+*summary(df)*
 
- Arvore                DAP       
- Min.   : 1            Min.   :10.12  
- 1st Qu.: 7          1st Qu.:12.92  
- Median :13       Median :14.23  
- Mean   :13        Mean   :14.05  
- 3rd Qu.:19       3rd Qu.:15.25  
- Max.   :25         Max.   :17.60
+ |Arvore |               DAP   |   
+ |------|----------------------|
+ |Min.   : 1           | Min.: 10.12 | 
+ |1st Qu.: 7         | 1st Qu.:12.92  |
+ |Median :13       |Median: 14.23  |
+ |Mean   :13      |  Mean: 14.05  |
+ |3rd Qu.:19     |  3rd Qu.: 15.25  |
+ |Max.   :25        | Max.: 17.60|
 
 ## Medidas de Posição e Dispersão
  
@@ -84,56 +85,57 @@ Caso o conjunto de dados estivesse em arquivo .csv, bastaria substituir o o read
 
 Apesar de já termos feito o cálculo da média utilizando a função summary(), podemos utilizar a função mean() para obter a média do experimento. O simbolo $ significa que estou acessando a coluna DAP e quero apenas que retorne o resultado da mesma.
 
-mean(df$DAP)
+*mean(df$DAP)*
 
-[1] 14.0492
+*[1] 14.0492*
 
 ### Cálculo da mediana
 
-median(df$DAP)
+*median(df$DAP)*
 
-[1] 14.23
+*[1] 14.23*
 
 ### Cálculo da moda
 
 Nesse caso, como não há na raiz do R uma função, é necessário instalar um pacote chamado “modeest” e a partir dai utilizar a função mfv()
 
-install.packages(“modeest”)
-library(modeest)
+*install.packages(“modeest”)*
 
-mfv(df$DAP)
+*library(modeest)*
 
-[1] 11.46
+*mfv(df$DAP)*
+
+*[1] 11.46*
 
 ### Cálculo da Amplitude
 
-max(df$DAP)-min(df$DAP)
+*max(df$DAP)-min(df$DAP)*
 
-[1] 7.48
+*[1] 7.48*
 
 Nesse comando, você terá como retorno os valores mínimo e máximo do seu data frame
 
-range(df$DAP)
+*range(df$DAP)*
 
-[1] 10.12 17.60
+*[1] 10.12 17.60*
 
 ### Cálculo da Variância
 
-var(df$DAP)
+*var(df$DAP)*
 
-[1] 3.115683
+*[1] 3.115683*
 
 ### Cálculo do Desvio Padrão
 
-sd(df$DAP)
+*sd(df$DAP)*
 
-[1] 1.76513
+*[1] 1.76513*
 
 ### Cálculo do Coeficiente de Variação
 
-sd(df$DAP)/ mean(df$DAP)*100
+*sd(df$DAP)/ mean(df$DAP)*100*
 
-[1] 12.56392
+*[1] 12.56392*
 
 ## Testes de hipótese
  
@@ -153,8 +155,9 @@ https://raw.githubusercontent.com/emanuelmad/R-para-analise-de-dados/main/Eucali
 
 ![image](https://user-images.githubusercontent.com/67385452/119032289-65d0c580-b982-11eb-9f05-a6c641ae6048.png)
 
-df2 =  read.table("eucalipto2.txt", header = T, sep="") 
-print(df2) 
+*df2 =  read.table("eucalipto2.txt", header = T, sep="")*
+
+*print(df2)*
 
 |Arvore|DAP_3x3|DAP_3x4 |
 |------|-------|-------|
