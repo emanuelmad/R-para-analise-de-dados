@@ -33,8 +33,9 @@ A hipótese de pesquisa é:
 
 ![image](https://user-images.githubusercontent.com/67385452/119034176-75e9a480-b984-11eb-884c-ea7e5cb18782.png)
 
-df3 =  read.table("eucalipto3.txt", header = T, sep="") 
-print(df3)
+*df3 =  read.table("eucalipto3.txt", header = T, sep="")* 
+
+*print(df3)*
 
 |Tratamento|   Rep|
 |----------|------|
@@ -56,7 +57,7 @@ print(df3)
 
 A princípio a primeira coisa a se fazer é analisar os dados descritivos do experimento, por isso utilizaremos a função summary() para fazer uma análise exploratória de cada tratamento.
 
-summary(df3)
+*summary(df3)*
 
 |Tratamento |          |   Rep     | 
 |-----------|----------|-----------|
@@ -71,16 +72,19 @@ Para calcular a média de cada tratamento, nesse caso é necessário criar um ve
 
 Esta função é bastante utiizada quando nosso data frame possui uma variável categorica (tratamento), sendo assim ela agrupa os dados nos diferentes níveis da pesquisa, pois pode ser obtido a média e variância de cada tratamento do experimento.
 
-media = tapply(df3$Rep, df3$Tratamento, mean)
-print(media)
+*media = tapply(df3$Rep, df3$Tratamento, mean)*
 
-  T1     T2     T3 
-13.618 13.348 12.568
+*print(media)*
+
+  |T1|     T2|     T3|
+  |--|-------|-------|
+  |13.618| 13.348| 12.568|
 
 Da mesma forma para a variância
 
-var = tapply(df3$Rep, df3$Tratamento, var)
-print(var)
+*var = tapply(df3$Rep, df3$Tratamento, var)*
+
+*print(var)*
 
 |T1|       T2 |      T3 |
 |-------|----------|----------|
@@ -88,7 +92,7 @@ print(var)
 
 É importante também aplicar o teste de homogeneidade das variâncias por meio do teste de Bartlett
 
-bartlett.test(df3$Rep, df3$Tratamento)
+*bartlett.test(df3$Rep, df3$Tratamento)*
 
 Bartlett test of homogeneity of variances
 
@@ -98,23 +102,27 @@ data:  df3$Rep and df3$Tratamento
 
 Um gráfico muito interessante que pode ser plotado para visualizar a relação entre os espaçamentos e o dap é o boxplot. 
 
-boxplot(df3$Rep ~ df3$Tratamento, 
-	main="Eucalipto", xlab="Tratamentos", ylab="DAP (cm)") 
-points(media, pch=20, col=2, cex=1.5)
+*boxplot(df3$Rep ~ df3$Tratamento,*
+
+*main="Eucalipto", xlab="Tratamentos", ylab="DAP (cm)")*
+
+*points(media, pch=20, col=2, cex=1.5)*
 
 ![image](https://user-images.githubusercontent.com/67385452/119049140-8f93e780-b996-11eb-8aa7-96314a80e4a7.png)
 
 Você pode também adicionar cores para cada boxplot com a função col
 
-boxplot(df3$Rep ~ df3$Tratamento,col=c("blue", "green", "yellow"), 
-	main="Eucalipto", xlab="Tratamentos", ylab="DAP (cm)") 
-points(media, pch=20, col=2, cex=1.8)
+*boxplot(df3$Rep ~ df3$Tratamento,col=c("blue", "green", "yellow"),*
+
+*main="Eucalipto", xlab="Tratamentos", ylab="DAP (cm)")* 
+
+*points(media, pch=20, col=2, cex=1.8)*
 
 ![image](https://user-images.githubusercontent.com/67385452/119049191-9cb0d680-b996-11eb-8147-2fc54b29c4c1.png)
 
 Agora entraremos no cálculo da Análise de variância. Existem diversas maneiras e pacotes para essa função. Porém o próprio R em sua raiz possui a função aov().
 
-anova.DIC = aov(df3$Rep ~ df3$Tratatamento, data=df3)
+*anova.DIC = aov(df3$Rep ~ df3$Tratatamento, data=df3)*
 
   |           | Df| Sum Sq| Mean Sq| F |value Pr(>F)|
   |-----------|---|-------|--------|---|------------|           
@@ -125,7 +133,7 @@ Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Para visualizar os gráficos da ANOVA, basta utilizar a função plot()
 
-plot(anova.DIC)
+*plot(anova.DIC)*
 
 ![image](https://user-images.githubusercontent.com/67385452/119049634-28c2fe00-b997-11eb-8371-de56c7fff95e.png)
 ![image](https://user-images.githubusercontent.com/67385452/119049649-2d87b200-b997-11eb-8d1b-09af0b53cc2e.png)
@@ -139,9 +147,11 @@ Dessa forma não é necessário proceder com o teste de médias (Tukey), mas cas
 
 Apenas a nível de informação, supondo que o nosso experimento tivesse apresentado um Fcalculado > Ftabelado, o código ficaria da seguinte forma:
 
-Tukey = TukeyHSD(anova.DIC) 
-print(Tukey)
-plot(Tukey)
+*Tukey = TukeyHSD(anova.DIC)* 
+
+*print(Tukey)*
+
+*plot(Tukey)*
 
 
 
