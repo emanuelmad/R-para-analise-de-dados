@@ -30,9 +30,13 @@ As principais janelas são o Editor/Scripts, onde será bastante utilizado para 
 Além dessas principais janelas, existem também outras abas como:
  
 **History**: painel com um histórico dos comandos rodados.
+
 **Files**: mostra os arquivos no diretório de trabalho. É possível navegar entre diretórios.
+
 **Packages**: apresenta todos os pacotes instalados e carregados.
+
 **Help**: janela onde a documentação das funções serão apresentadas.
+
 **Viewer**: painel onde relatórios e dashboards serão apresentados.
 
 Para iniciar um projeto no RStudio, é necessário criar uma pasta no “C:” e direcionar o caminho para ela, na própria IDE você pode ir na aba “Sessão” > “Setar diretório de trabalho” > “Escolher diretório”. 
@@ -50,9 +54,11 @@ Para criar um vetor basta colocar os valores separados por vírgula dentro de um
 
 ### Exemplo:
 
-DAP = c( 10.5, 11.2, 10.2, 15.7)
-H = c(20.2, 22.4, 20.0, 29.4)
-Especie =c(“Eucalipto”, “Pinus”, “Acácia”, “Araucária”)
+*DAP = c( 10.5, 11.2, 10.2, 15.7)*
+
+*H = c(20.2, 22.4, 20.0, 29.4)*
+
+*Especie =c(“Eucalipto”, “Pinus”, “Acácia”, “Araucária”)*
 
 Lembrando que, por se tratar de uma string (texto) os nomes devem vir entre “ ”.
 
@@ -60,23 +66,23 @@ Cada valor dentro de um vetor tem uma posição, ou seja, a ordem é dada pela p
 
 ### Exemplo:
 
-DAP[3]
+*DAP[3]*
 
-[1] 10.2
+*[1] 10.2*
 
 Além disso, um vetor só pode ser a mesma classe dos seus objetos, um comando utilizado para saber a classe do vetor é:
 
-class(Especie)
+*class(Especie)*
 
-[1] "character"
+*[1] "character"*
 
 Pode ser realizado alguns cálculos entre vetores:
 
 Um exemplo é a soma de vetores, nesse exemplo estamos apenas utilizando o código para somar dois vetores. Porém, na prática não é recomendável somar DAP e H, pois são dados com características diferentes.  
 
-DAP + H 
+*DAP + H* 
 
-[1] 30.7 33.6 30.2 45.1
+*[1] 30.7 33.6 30.2 45.1*
 
 ## Data Frame
 
@@ -86,23 +92,24 @@ O dataframe é um conjunto de vetores combinados em um único dado. Pode ser uti
 
 Utilizando os dados anteriores, podemos criar um data frame com DAP, H e Especie utilizando o comando data.frame
 
-df = data.frame(DAP, H, Especie)
+*df = data.frame(DAP, H, Especie)*
 
-df
+*df*
 
 Resultado
 
-  DAP    H   Especie
-1 10.5 20.2 Eucalipto
-2 11.2 22.4     Pinus
-3 10.2 20.0    Acácia
-4 15.7 29.4 Araucária
+  |DAP    |H|   Especie|
+  --------|--|---------|
+|10.5 |20.2 |Eucalipto|
+|11.2 |22.4 |Pinus|
+|10.2 |20.0 |Acácia|
+|15.7 |29.4 |Araucária|
 
 Essa apostila é de carater para iniciar os primeiros passos no R, logicamente deve-se pesquisar e procurar mais detalhes em outras fontes, além disso, a comunidade científica do R é bastante robusta e possui diversos tipos de materiais para auxiliá-los na pesquisa.
 
 Comecem a observar o uso dos pacotes disponíveis para análise de dados, com certeza algum servirá para as pesquisas de vocês.
 
-# <center> Agora vamos praticar um pouco e nos desafiar um pouco!!! </center> 
+# <center> Agora vamos praticar um pouco e nos desafiar!!! </center> 
 
 
 
