@@ -31,11 +31,13 @@ A hipótese de pesquisa é:
 ### Tratamentos
 
 *𝐻0: todas as médias dos tratamentos são iguais entre si*
+
 *𝐻1: há pelo menos dois tratamentos cujas médias são diferentes entre si* 
 
 ### Blocos
 
 *H0: blocos não heterogêneos*
+
 *H1: blocos heterogêneos*
 
 Nesse experimento iremos utilizar os seguintes pacotes
@@ -246,6 +248,7 @@ Vamos agora gerar um gráfico dos nossos dados utilizando a função boxplot par
 **Normalidade dos erros**
 
 * H0: Os erros seguem distribuição normal
+
 * H1: Os erros não seguem distribuição normal
 
 *(norm=shapiro.test(anova$residuals))*
@@ -293,6 +296,7 @@ DW = 2.729, p-value = 0.683
 alternative hypothesis: true autocorrelation is greater than 0
 
 * Como p-valor calculado (p=0.683) é maior que o nível de significância adotado (p=0,05), não rejeita-se H0. Logo, os erros são independentes. 
+
 A Figura apresenta os resíduos brutos. Percebe-se que os resíduos estão distribuídos de forma totalmente aleatória, evidenciando a sua independência.
 
 *plot(anova$residuals, las=1, pch=19, col='red', ylab='Resíduos brutos')*
