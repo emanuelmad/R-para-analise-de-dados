@@ -7,15 +7,23 @@ https://raw.githubusercontent.com/emanuelmad/R-para-analise-de-dados/main/DBC.tx
 Os tratamentos foram:
 
 **T1 = testemunha (sem produto para enraizamento)**
+
 **T2 = Produto A**
+
 **T3 = Produto B**
+
 **T4 = Produto C**
+
 **T5 = Produto D**
+
 **T6 = Produto E**
+
 **T7 = produto F**
 
 **Bloco 1 = A**
+
 **Bloco 2 = B**
+
 **Bloco 3 = C**
 
 A hipótese de pesquisa é:
@@ -74,7 +82,7 @@ Criando nosso dafa frame
 
 Para ver nossa análise dos dados utilizar a função summary:
 
-*summary(df)
+*summary(df)*
 
 |Tratamento|Bloco|         |Raiz|
 |---------------------|-------------------|---------|-------|
@@ -87,14 +95,16 @@ Para ver nossa análise dos dados utilizar a função summary:
 
 Agora veremos os dados de forma a abranger as categorias de tratamentos e blocos
 
-*mediatrat = tapply(df$Raiz, df$Tratamento, mean)
-*print(mediatrat)
+*mediatrat = tapply(df$Raiz, df$Tratamento, mean)*
+
+*print(mediatrat)*
 
 |T1| T2| T3| T4| T5| T6| T7 |
 |---|---|---|---|---|---|---|
 |10| 11| 10| 14| 15| 15| 16|
 
 *mediabloco = tapply(df$Raiz, df$Bloco, mean)*
+
 *print(mediabloco)*
 
  |    A |       B |       C |
@@ -102,6 +112,7 @@ Agora veremos os dados de forma a abranger as categorias de tratamentos e blocos
 |13.57143| 13.85714| 11.57143|
 
 *vartrat = tapply(df$Raiz, df$Tratamento, var)*
+
 *print(vartrat)*
 
 |T1 |T2| T3| T4| T5| T6| T7| 
@@ -109,6 +120,7 @@ Agora veremos os dados de forma a abranger as categorias de tratamentos e blocos
 | 4|  7|  7|  3|  4|  4|  4|
 
 *varbloco = tapply(df$Raiz, df$Bloco, var)*
+
 *print(varbloco)*
 
  |   A |        B|         C| 
@@ -116,6 +128,7 @@ Agora veremos os dados de forma a abranger as categorias de tratamentos e blocos
 | 8.285714|  4.809524| 14.285714|
 
 *sdtrat = tapply(df$Raiz, df$Tratamento, sd)*
+
 *print(sdtrat)*
 
  |  T1 |      T2 |      T3|       T4|       T5|       T6|       T7| 
@@ -123,6 +136,7 @@ Agora veremos os dados de forma a abranger as categorias de tratamentos e blocos
 |2.000000| 2.645751| 2.645751| 1.732051| 2.000000| 2.000000| 2.000000|
 
 *sdbloco = tapply(df$Raiz, df$Bloco, sd)*
+
 *print(sdbloco)*
 
 |A        |B        |C |
@@ -130,6 +144,7 @@ Agora veremos os dados de forma a abranger as categorias de tratamentos e blocos
 |2.878492 |2.193063 |3.779645|
 
 *cvtrat = (sdtrat/mediatrat)*100*
+
 *cvtrat*
 
 |T1|       T2|       T3|       T4|       T5|       T6|       T7|
@@ -137,6 +152,7 @@ Agora veremos os dados de forma a abranger as categorias de tratamentos e blocos
 |20.00000| 24.05228| 26.45751| 12.37179| 13.33333| 13.33333| 12.50000|
 
 *cvbloco = (sdbloco/mediabloco)*100*
+
 *cvbloco*
  
  |A   |     B  |      C |
@@ -148,7 +164,9 @@ Após algumas análises estatísticas das principais medidas do nosso banco de d
 Primeiro habilitando o acesso ao nosso data frame e depois utilizando a função aov da raiz do R.
 
 *attach(df)*
+
 *anova=aov(Raiz~Tratamento+Bloco)*
+
 *summary(anova)*
 
 |FV	|GL (df)|	SQ (Sum Sq)|	QM (Mean Sq)|	F	Pr(>F)|
@@ -172,6 +190,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Como os tratamentos tiveram diferenças pela análise de variância, é necessário fazer um teste de médias para descobrir quais as diferenças entre os tratamentos
 
 *attach(df)*
+
 *HSD.test(anova,as.factor("Tratamento"),console=TRUE)*
 
 Study: anova ~ as.factor("Tratamento")
@@ -247,6 +266,7 @@ Gerando um gráfico de normalidade
 ### Homogeneidade de Variâncias
 
 * H0 As Variâncias são homogêneas
+
 * H1 As Variâncias não são homogêneas
 
 *(homog=with(df, bartlett.test(anova$residuals ~ Tratamento)))*
@@ -261,6 +281,7 @@ Como p-valor calculado (p=0.7802) é maior que o nível de significância adotad
 ### Independência dos erros
 
 * H0 = Os erros são independentes
+
 * H1 = Os erros não são independentes
 
 *lmtest::dwtest(anova)*
@@ -274,8 +295,9 @@ alternative hypothesis: true autocorrelation is greater than 0
 * Como p-valor calculado (p=0.683) é maior que o nível de significância adotado (p=0,05), não rejeita-se H0. Logo, os erros são independentes. 
 A Figura apresenta os resíduos brutos. Percebe-se que os resíduos estão distribuídos de forma totalmente aleatória, evidenciando a sua independência.
 
-*plot(anova$residuals, las=1, pch=19, col='red', ylab='Resíduos brutos')
-abline(h=0)*
+*plot(anova$residuals, las=1, pch=19, col='red', ylab='Resíduos brutos')*
+
+*abline(h=0)*
 
 ![image](https://user-images.githubusercontent.com/67385452/119054163-8a866680-b99d-11eb-9f08-63869d7bc28a.png)
 
